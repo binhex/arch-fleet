@@ -61,7 +61,7 @@ cp /home/nobody/novnc-16x16.png /usr/share/webapps/novnc/app/images/icons/
 
 cat <<'EOF' > /tmp/startcmd_heredoc
 # run fleet
-/usr/sbin/jetbrains-fleet
+export SKIKO_RENDER_API=SOFTWARE && /usr/sbin/jetbrains-fleet
 EOF
 
 # replace startcmd placeholder string with contents of file (here doc)
@@ -77,7 +77,7 @@ rm /tmp/startcmd_heredoc
 cat <<'EOF' > /tmp/menu_heredoc
     <item label="Fleet">
     <action name="Execute">
-      <command>/usr/sbin/jetbrains-fleet</command>
+      <command>export SKIKO_RENDER_API=SOFTWARE && /usr/sbin/jetbrains-fleet</command>
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
